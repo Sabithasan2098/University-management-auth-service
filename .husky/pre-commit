@@ -1,1 +1,1 @@
-npm lint:check
+yarn lint:check
