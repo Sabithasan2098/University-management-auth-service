@@ -1,1 +1,2 @@
-npm lint:check
+
+yarn lint-staged

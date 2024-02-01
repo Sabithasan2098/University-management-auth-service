@@ -9,15 +9,19 @@
     "lint:fix": "eslint --fix",
     "prettier:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky"
+    "lint:prettier": "yarn lint:check && yarn prettier:check"
   },
   "author": "Sabit_Hasan",
   "license": "ISC",
+  "lint-staged": {
+    "src/**/*.ts": "yarn lint:prettier"
+  },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.0.7",
+    "lint-staged": "^15.2.1",
     "prettier": "^3.2.4",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.3.3"
