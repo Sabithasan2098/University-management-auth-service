@@ -1,16 +1,17 @@
 import mongoose from 'mongoose'
 import app from './app'
 import config from './config/index'
+import { errorLogger, logger } from './shered/logger'
 
 async function main() {
   try {
     await mongoose.connect(config.database_url as string)
-    console.log('Database connection successful')
+    logger.info('Database connection successful')
     app.listen(config.port, () => {
-      console.log(`Example app listening on port ${config.port}`)
+      logger.info(`Example app listening on port ${config.port}`)
     })
   } catch (error) {
-    console.log('Failed to connect database', error)
+    errorLogger.error('Failed to connect database', error)
   }
 }
 
