@@ -8,11 +8,11 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// test
 app.use('/api/v1/users', userRoutes)
 
+// test
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
-  next('error')
+  throw new Error('Testing errorlogger')
 })
 // global error handler
 app.use(globalErrorHandler)
