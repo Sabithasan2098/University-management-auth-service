@@ -22,3 +22,27 @@
   label: 'right meow!',
   timestamp: '2024-02-04T02:12:11.827Z'
 }
+{
+  message: 'Database connection successful',
+  level: 'info',
+  label: 'P.H.U',
+  timestamp: '2024-02-04T02:13:47.620Z'
+}
+{
+  message: 'Example app listening on port 5000',
+  level: 'info',
+  label: 'P.H.U',
+  timestamp: '2024-02-04T02:13:47.626Z'
+}
+{
+  message: 'Database connection successful',
+  level: 'info',
+  label: 'P.H.U',
+  timestamp: '2024-02-04T02:16:42.433Z'
+}
+{
+  message: 'Example app listening on port 5000',
+  level: 'info',
+  label: 'P.H.U',
+  timestamp: '2024-02-04T02:16:42.438Z'
+}
