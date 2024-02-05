@@ -1,15 +1,17 @@
-import { NextFunction, Request, Response } from 'express'
+/* eslint-disable no-console */
+/* eslint-disable no-unused-expressions */
+import { ErrorRequestHandler } from 'express'
 import config from '../../config'
 import { IGenericErrorMessage } from '../../interfaces/error'
 import handleValidationError from '../../error/handleValidationError'
 import ApiError from '../../error/apiError'
+import { errorLogger } from '../../shered/logger'
 
-const globalErrorHandler = (
-  err,
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
+  config.env === 'development'
+    ? console.log(`globalErrorhandler ~~`, err)
+    : errorLogger.error(`globalErrorHandler ~~`, err)
+
   let statusCode: number = 500
   let message: string = 'something went wrong !'
   let errorMessage: IGenericErrorMessage[] = []
