@@ -8,7 +8,7 @@ const createAcademicSemester: RequestHandler = async (req, res, next) => {
       await AcademicSemesterService.createAcademicSemester(academicSemester);
     res.status(200).json({
       success: true,
-      message: 'creating user successfully',
+      message: 'creating academicSemester successfully',
       data: result,
     });
   } catch (err) {
