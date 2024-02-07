@@ -1,14 +1,15 @@
 import express from 'express';
 import validateRequestWithZod from '../../middleware/requestValidateZod';
 import { AcademicSemesterValidationWithZod } from './academicSemester.zodValidation';
+import { AcademicSemesterController } from './academicSemester.controller';
 
 const router = express.Router();
 router.post(
-  '/createUser',
+  '/createAcademicSemester',
   validateRequestWithZod(
     AcademicSemesterValidationWithZod.createAcademicSemesterZodSchema,
   ),
-  //   userController.createUser,
+  AcademicSemesterController.createAcademicSemester,
 );
 
-export const userRoutes = router;
+export const academicSemesterRoutes = router;
