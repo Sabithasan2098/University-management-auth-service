@@ -1,19 +1,23 @@
-import { RequestHandler } from 'express';
+import { NextFunction, Request, RequestHandler, Response } from 'express';
 import { AcademicSemesterService } from './academicSemester.service';
+import catchAsync from '../../../shered/catchAsync';
+import sendResponse from '../../../shered/sendResponse';
+import status from 'http-status';
 
-const createAcademicSemester: RequestHandler = async (req, res, next) => {
-  try {
+const createAcademicSemester: RequestHandler = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
     const { ...academicSemester } = req.body;
     const result =
       await AcademicSemesterService.createAcademicSemester(academicSemester);
-    res.status(200).json({
+    next();
+    // using sendResponse
+    sendResponse(res, {
+      statusCode: status.OK,
       success: true,
       message: 'creating academicSemester successfully',
       data: result,
     });
-  } catch (err) {
-    next(err);
-  }
-};
+  },
+);
 
 export const AcademicSemesterController = { createAcademicSemester };
